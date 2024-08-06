@@ -1,0 +1,77 @@
+button {
+    width: 40px;
+    height: 25px;
+    margin: 2px;
+}
+
+#mainBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#display {
+    width: 40px;
+    height: 30px;
+    margin: 2px;
+    border-style: thick solid #0000FF;
+}
+
+#upper,
+#mid,
+#lower {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#plus,
+#equal {
+    width: 40px;
+    height: 54px;
+}
+
+#zero {
+    width: 84px;
+    height: 25px;
+}
+
+#CAC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.functions {
+    height: 142px;
+    width: 40px;
+    margin: 2px;
+    margin-top: 3px;
+}
+
+.small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.smallest {
+    display: flex;
+    flex-wrap: wrap;
+}
