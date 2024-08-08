@@ -1,8 +1,9 @@
-const operations = document.getElementsByClassName("functions");
+const operations = document.getElementsByClassName("operations");
 const equal = document.getElementById("equal");
 
 const result = document.getElementById("res");
 const clear = document.getElementById("C");
+const backspace = document.getElementById("backspace");
 
 const numbers = document.getElementsByClassName("numbers");
 
@@ -11,6 +12,14 @@ const decimal = document.getElementById("decimal");
 let mathArray = [0, '', 0];
 let index = 0;
 let decBool = false;
+
+function backspaceFunction(){
+    if (result.innerText != "0") {
+        result.innerText.slice(0, -1);
+        mathArray[index].slice(0, -1);
+        console.log(mathArray);
+    }
+}
 
 function clearFunction() {
     displayUpdate("0", 1);
@@ -41,7 +50,7 @@ function decimalFunction() {
 }
 
 function numberFunction() {
-    if (mathArray[index] == 0) {
+    if (mathArray[index] == "0") {
         mathArray[index] = this.innerText;
     }
     else {
@@ -112,5 +121,4 @@ for (let i = 0; i < numbers.length; i++){
 equal.addEventListener("click", operate);
 clear.addEventListener("click", clearFunction);
 decimal.addEventListener("click", decimalFunction);
-
-
+backspace.addEventListener("click", backspaceFunction);

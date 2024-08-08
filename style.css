@@ -1,7 +1,21 @@
 button {
-    width: 40px;
-    height: 25px;
+    width: 80px;
+    height: 50px;
     margin: 2px;
+    border-style: hidden;
+    font-size: 25px;
+}
+
+p {
+    text-align: center;
+    height: 80px;
+    width: 320px;
+    margin: 5px;
+    padding-top: 10px;
+    margin-top: 100px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.089);
+    font-size: 40px;
 }
 
 #mainBody {
@@ -32,15 +46,14 @@ button {
     flex-wrap: wrap;
 }
 
-#plus,
 #equal {
-    width: 40px;
-    height: 54px;
+    width: 80px;
+    height: 104px;
 }
 
 #zero {
-    width: 84px;
-    height: 25px;
+    width: 164px;
+    height: 50px;
 }
 
 #CAC {
