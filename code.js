@@ -9,15 +9,29 @@ const numbers = document.getElementsByClassName("numbers");
 
 const decimal = document.getElementById("decimal");
 
-let mathArray = [0, '', 0];
+let mathArray = ["0", "", "0"];
 let index = 0;
 let decBool = false;
 
 function backspaceFunction(){
-    if (result.innerText != "0") {
-        result.innerText.slice(0, -1);
-        mathArray[index].slice(0, -1);
-        console.log(mathArray);
+    if (mathArray[index] != "0" && mathArray[index].length > 1) {
+        result.innerText = result.innerText.slice(0, -1);
+        mathArray[index] = mathArray[index].slice(0, -1);
+    }
+    else if (mathArray[index].length == 1 && mathArray[index] != "0") {
+        if (index == 0) {
+            result.innerText = "0";
+            mathArray[index] = "0";
+        }
+        else if (index == 2) {
+            result.innerText = result.innerText.slice(0, -1);
+            mathArray[index] = "0";
+        }
+    }
+    else if (mathArray[1] != '' && index == 2) {
+        result.innerText = result.innerText.slice(0, -1);
+        mathArray[1] = "";
+        index = 0;
     }
 }
 
@@ -50,14 +64,16 @@ function decimalFunction() {
 }
 
 function numberFunction() {
-    if (mathArray[index] == "0") {
-        mathArray[index] = this.innerText;
-    }
-    else {
-        mathArray[index] += this.innerText;
-    }
-
-    displayUpdate(this.innerText, 0);
+    if (mathArray[index].length < 5) {
+        if (mathArray[index] == "0") {
+            mathArray[index] = this.innerText;
+        }
+        else {
+            mathArray[index] += this.innerText;
+        }
+    
+        displayUpdate(this.innerText, 0);
+    }   
 }
 
 function operationsFunction() {
@@ -122,3 +138,18 @@ equal.addEventListener("click", operate);
 clear.addEventListener("click", clearFunction);
 decimal.addEventListener("click", decimalFunction);
 backspace.addEventListener("click", backspaceFunction);
+
+document.addEventListener("keydown", function(event) {
+    if (event.key == 48 || event.key == 96) {
+        console.log(1);
+        numbers[9].click();
+    }
+    else if (event.ket == 49 || event.key == 97) {
+        console.log(2);
+        numbers[6].click();
+    }
+})
+
+// for (let i = 0; i < numbers.length; i++) {
+//     console.log(numbers[i]);
+// }
