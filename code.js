@@ -94,36 +94,38 @@ function operationsFunction() {
 }
 
 function operate() {
-    let result = "0";
+    if (mathArray[2] != "0") {
+        let result = "0";
 
-    if (index == 2) {
-        let first = Number(mathArray[0]);
-        let second = Number(mathArray[2]);
-        if  (mathArray[1] == "+") {
-            result = String(Math.round((first + second) * 10) / 10);
-            result.innerText = result;
-        }
-        else if (mathArray[1] == "-") {
-            result = String(Math.round((first - second) * 10) / 10);
-            result.innerText = result;
-        }
-        else if (mathArray[1] == "x") {
-            result = String(Math.round((first * second) * 10) / 10)
-            result.innerText = result;
-        }
-        else if (mathArray[1] == "/") {
-            if (second == 0) {
-                displayUpdate("Error", 1);
-                return;
+        if (index == 2) {
+            let first = Number(mathArray[0]);
+            let second = Number(mathArray[2]);
+            if  (mathArray[1] == "+") {
+                result = String(Math.round((first + second) * 10) / 10);
+                result.innerText = result;
             }
-            result = String(Math.round((first / second) * 10) / 10)
-            result.innerText = result;
+            else if (mathArray[1] == "-") {
+                result = String(Math.round((first - second) * 10) / 10);
+                result.innerText = result;
+            }
+            else if (mathArray[1] == "x") {
+                result = String(Math.round((first * second) * 10) / 10)
+                result.innerText = result;
+            }
+            else if (mathArray[1] == "/") {
+                if (second == 0) {
+                    displayUpdate("Error", 1);
+                    return;
+                }
+                result = String(Math.round((first / second) * 10) / 10)
+                result.innerText = result;
+            }
         }
+        mathArray = [result, "", "0"];
+        displayUpdate(result, 1);
+        index = 0;
+        decBool = false;
     }
-    mathArray = [result, "", "0"];
-    displayUpdate(result, 1);
-    index = 0;
-    decBool = false;
 }
 
 for (let i = 0; i < operations.length; i++){
@@ -140,16 +142,59 @@ decimal.addEventListener("click", decimalFunction);
 backspace.addEventListener("click", backspaceFunction);
 
 document.addEventListener("keydown", function(event) {
-    if (event.key == 48 || event.key == 96) {
-        console.log(1);
+    if (event.key == "0") {
         numbers[9].click();
     }
-    else if (event.ket == 49 || event.key == 97) {
-        console.log(2);
+    else if (event.key == "1") {
         numbers[6].click();
     }
-})
+    else if (event.key == "2") {
+        numbers[7].click();
+    }
+    else if (event.key == "3") {
+        numbers[8].click();
+    }
+    else if (event.key == "4") {
+        numbers[3].click();
+    }
+    else if (event.key == "5") {
+        numbers[4].click();
+    }
+    else if (event.key == "6") {
+        numbers[5].click();
+    }
+    else if (event.key == "7") {
+        numbers[0].click();
+    }
+    else if (event.key == "8") {
+        numbers[1].click();
+    }
+    else if (event.key == "9") {
+        numbers[2].click();
+    }
 
-// for (let i = 0; i < numbers.length; i++) {
-//     console.log(numbers[i]);
-// }
+    else if (event.key == "+") {
+        operations[3].click();
+    }
+    else if (event.key == "-") {
+        operations[2].click();
+    }
+    else if (event.key == "*") {
+        operations[1].click();
+    }
+    else if (event.key == "/") {
+        operations[0].click();
+    }
+    else if (event.key == "=" || event.key == "Enter") {
+        equal.click();
+    }
+    else if (event.key == "Backspace") {
+        backspace.click();
+    }
+    else if (event.key == ".") {
+        decimal.click();
+    }
+    else if (event.key == "c" || event.key == "C") {
+        clear.click();
+    }
+})
